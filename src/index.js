@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 const express = require('express')
-const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const http = require('http')
 const cors = require('cors')
@@ -38,10 +37,6 @@ app.use(
     ieNoOpen: false,
   }),
 )
-
-// parsing the request bodys
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 
 server.listen(config.port, () => {
   if (!allowedConfigs.includes(serverConfig)) {
